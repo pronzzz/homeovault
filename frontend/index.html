@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeoVault - Medical Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1 id="app-title">HomeoVault <span>💊</span></h1>
+                <button class="btn-icon" onclick="editStoreName()" title="Change Store Name">✏️</button>
+            </div>
+            <div class="system-status">
+                <span id="status-indicator">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Dashboard Stats -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-value" id="total-medicines">0</span>
+                <span class="stat-label">Total Medicines</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="total-bottles">0</span>
+                <span class="stat-label">Total Bottles</span>
+            </div>
+            <div class="stat-card expired">
+                <span class="stat-value" id="expired-count">0</span>
+                <span class="stat-label">Expired Batches</span>
+            </div>
+            <div class="stat-card low-stock">
+                <span class="stat-value" id="low-stock-count">0</span>
+                <span class="stat-label">Low Stock</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="add-btn" class="btn btn-primary">+ Add Stock</button>
+            <button id="reports-btn" class="btn btn-secondary" onclick="showReports()">📊 Reports</button>
+            <button id="history-btn" class="btn btn-secondary" onclick="showHistory()">📜 History</button>
+            <button id="export-btn" class="btn btn-secondary" onclick="window.location.href='/api/export'">📂 Export
+                CSV</button>
+        </div>
+
+        <!-- Inventory List -->
+        <div class="inventory-section">
+            <div class="section-header">
+                <h2>Current Stock</h2>
+                <div class="modal-content large">
+                    <div class="modal-header">
+                        <h2>Transaction History</h2>
+                        <button class="close-btn" onclick="closeHistory()">×</button>
+                    </div>
+                    <div id="history-list">
+                        <!-- History items injected here -->
+                        Loading...
+                    </div>
+                </div>
+            </div>
+
+            <section id="actions-panel">
+                <button id="add-new-item-btn" class="big-button green">
+                    + Add New Item
+                </button>
+            </section>
+            </main>
+        </div>
+        <script src="app.js"></script>
+</body>
+
+</html>
